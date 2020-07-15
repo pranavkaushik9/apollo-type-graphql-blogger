@@ -1,5 +1,5 @@
 # Apollo GraphQL sample
-- Build a basic blogging site using Apollo & GraphQL
+- Basic blogging site using GraphQL, type-graphql, Apollo
 
 
 ## Domain
