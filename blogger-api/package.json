@@ -1,0 +1,16 @@
+{
+  "name": "blogger-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --watch ./db.json",
+    "generate": "node ./index.js > ./db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "json-server": "^0.16.1"
+  }
+}
