@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Container, makeStyles } from '@material-ui/core';
 
-import { Posts, Authors } from '../../components';
+import { Authors, Posts } from '../../components';
 
 export const Home = () => {
     const classes = useStyles();

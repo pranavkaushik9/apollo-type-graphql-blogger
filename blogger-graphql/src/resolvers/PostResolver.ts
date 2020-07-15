@@ -1,6 +1,6 @@
 import { Query, FieldResolver, Resolver, ResolverInterface, Root, Ctx, Args } from "type-graphql";
-import { Post, Context, Blog, User, PostsArgs } from "../types";
-import { PostConnection } from "../types/post/PostConnection";
+
+import { Blog, Context, Post, PostsArgs, PostConnection, User } from "../types";
 
 
 /** Resolver for Blog */

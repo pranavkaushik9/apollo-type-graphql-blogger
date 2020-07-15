@@ -1,9 +1,10 @@
 import "reflect-metadata";
+require('dotenv-flow').config();
+
 import { ApolloServer } from 'apollo-server-express';
 import Express from 'express';
 import { buildSchema } from "type-graphql";
 
-import { path, port } from "./constants";
 import { getDataSources } from "./datasources";
 
 const main = async () => {
@@ -20,8 +21,8 @@ const main = async () => {
     
     server.applyMiddleware({ app });
     
-    app.listen(port, () => {
-        console.log(`server listening on http://localhost:${port}${path}`);
+    app.listen(process.env.SERVER_PORT, () => {
+        console.log(`server listening on http://localhost:${process.env.SERVER_PORT}${process.env.SERVER_PATH}`);
     });
 }
 

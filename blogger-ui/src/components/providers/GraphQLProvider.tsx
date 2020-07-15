@@ -1,12 +1,11 @@
 import React, { ReactElement } from 'react';
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 
-import { graphQLServerPath } from '../../constants';
 
 const apolloClient = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-        uri: graphQLServerPath
+        uri: process.env.REACT_APP_GRAPHQL_SERVER_PATH
     })
 });
 

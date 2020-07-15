@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 
-import { Home } from './pages';
 import { AppHeader } from './components';
+import { Home } from './pages';
 
 export const Shell = () => {
     return (

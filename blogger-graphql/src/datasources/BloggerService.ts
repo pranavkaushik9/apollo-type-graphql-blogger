@@ -1,6 +1,5 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 
-import { apiBaseURL } from '../constants';
 import { Blog, BlogArgs, User, UsersArgs, IPaginatedResponse, Post, PostsArgs } from '../types';
 import { BaseEntity } from '../types/shared/BaseEntity';
 
@@ -8,7 +7,7 @@ import { BaseEntity } from '../types/shared/BaseEntity';
 export class BloggerService extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = apiBaseURL;
+        this.baseURL = process.env.API_BASE_URL;
     }
 
     /************ blogs */

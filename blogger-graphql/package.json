@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql"
+    "dev": "cross-env nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,8 @@
     "type-graphql": "^1.0.0-rc.3"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv-flow": "^3.2.0",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"

@@ -1,8 +1,8 @@
 import React from 'react';
-
-import { Shell } from './Shell';
 import { ThemeProvider, createMuiTheme, colors } from '@material-ui/core';
+
 import { GraphQLProvider } from './components';
+import { Shell } from './Shell';
 
 function App() {
   return (

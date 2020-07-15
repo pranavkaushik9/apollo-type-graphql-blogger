@@ -1,5 +1,5 @@
-import { Post } from "./Post";
 import { Blog } from "./Blog";
+import { Post } from "./Post";
 
 // TODO: reuse type defined in blogger-graphql
 export interface User {
