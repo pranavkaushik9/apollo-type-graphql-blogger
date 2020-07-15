@@ -3,9 +3,6 @@
 
 
 ## Domain
-1. User
-2. Blog
-3. Post
-4. Comment
+![Domain](assets/domain.png)
 
 
