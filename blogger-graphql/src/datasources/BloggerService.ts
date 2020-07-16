@@ -96,7 +96,7 @@ export class BloggerService extends RESTDataSource {
                 total: 0
             }
         };
-        let startIndex = cursor == null ? 0 : data.findIndex((entity: T) => entity.id === cursor);
+        let startIndex = cursor == null ? 0 : data.findIndex((entity: T) => entity.id === cursor) + 1;
         startIndex = startIndex === -1 ? 0 : startIndex;
         connection.pageInfo.hasNextPage =  startIndex + first < data.length;
         connection.pageInfo.total = data.length;
@@ -111,7 +111,6 @@ export class BloggerService extends RESTDataSource {
                 cursor: entity.id,
                 node: {...entity}
             }));
-
         return connection;
     }
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch ./db.json",
+    "server": "json-server --port 4000 --watch ./db.json",
     "generate": "node ./index.js > ./db.json"
   },
   "author": "",

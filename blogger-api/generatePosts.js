@@ -6,6 +6,9 @@ module.exports = (threshold, users, blogs) => {
         const randomUserId = Math.floor(Math.random() * (users.length)) + 1;
         const userBlogs = blogs.filter(blog => blog.id.indexOf(`${randomUserId}-`) > -1)
         if (userBlogs.length == 0) {
+            if (i !== 0) {
+                i--;
+            }
             continue;
         }
         const randomBlogIndex = Math.floor(Math.random() * (userBlogs.length - 1));
