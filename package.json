@@ -1,0 +1,27 @@
+{
+  "name": "apollo-sample",
+  "version": "1.0.0",
+  "description": "- Basic blogging site using GraphQL, type-graphql, Apollo",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:api\" \"npm run start:graphql\" \"npm run start:client\"",
+    "start:api": "cd blogger-api && npm run server ",
+    "start:graphql": "cd blogger-graphql && npm run dev",
+    "start:client": "cd blogger-ui && npm run start",
+    "e2e": "cd blogger-ui && npm run test:e2e",
+    "start-test": "concurrently \"npm run start\" \"npm run e2e\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranav-xx/apollo-type-graphql-blogger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranav-xx/apollo-type-graphql-blogger/issues"
+  },
+  "homepage": "https://github.com/pranav-xx/apollo-type-graphql-blogger#readme",
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
