@@ -57,8 +57,5 @@ const useStyles = makeStyles({
     },
     cardDetails: {
       flex: 1,
-    },
-    clickable: {
-        cursor: 'pointer'
     }
 });

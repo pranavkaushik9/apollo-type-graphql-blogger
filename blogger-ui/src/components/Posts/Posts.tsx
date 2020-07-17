@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useHistory } from 'react-router-dom';
 
 import { getPosts } from '../../graphql';
 import { usePagination } from '../../hooks/usePagination';
@@ -8,7 +9,6 @@ import { Post, PostArgs } from '../../types';
 import { ErrorContainer } from '../ErrorContainer';
 import { LoadingContainer } from '../LoadingContainer';
 import { PostCard } from '../PostCard';
-import { useHistory } from 'react-router-dom';
 
 interface PostsProps {
     args: PostArgs;
