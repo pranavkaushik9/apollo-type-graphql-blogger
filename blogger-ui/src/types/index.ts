@@ -5,6 +5,7 @@ export * from './PaginatedPost';
 export * from './PaginationResponse';
 export * from './Post';
 export * from './PostArgs';
+export * from './PostDetailResponse';
 export * from './QueryResponse';
 export * from './User';
 export * from './UserArgs'

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 
 export const AppHeader = () => {
     const classes = useStyles();
@@ -16,7 +17,7 @@ export const AppHeader = () => {
                         noWrap
                         className={classes.toolbarTitle}
                     >
-                        Blogger
+                        <NavLink to="/" activeClassName={classes.activeLink} className={classes.link}>Blogger</NavLink>
                     </Typography>
                     <Button variant="outlined" size="small" color="secondary">
                         Sign up
@@ -31,11 +32,18 @@ const useStyles = makeStyles((theme) => ({
     header: {
       borderBottom: `1px solid ${theme.palette.divider}`,
       backgroundColor: theme.palette.primary.dark,
+      marginBottom: '1rem'
     },
     toolbarTitle: {
       flex: 1,
       textAlign: 'left',
       color: theme.palette.text.secondary
     },
+    activeLink: {
+        color: theme.palette.text.secondary
+    },
+    link: {
+        textDecoration: 'none'
+    }
 }));
   

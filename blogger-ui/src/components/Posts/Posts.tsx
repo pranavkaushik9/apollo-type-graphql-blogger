@@ -8,6 +8,7 @@ import { Post, PostArgs } from '../../types';
 import { ErrorContainer } from '../ErrorContainer';
 import { LoadingContainer } from '../LoadingContainer';
 import { PostCard } from '../PostCard';
+import { useHistory } from 'react-router-dom';
 
 interface PostsProps {
     args: PostArgs;
@@ -21,9 +22,12 @@ export const Posts = ({ args }: PostsProps) => {
         fetchMoreData,
         hasMore
     } = usePagination<Post, PostArgs>(args, 'posts', getPosts);
+    const { push: navigate } = useHistory();
 
     const classes = useStyles();
-
+    const routeToPostDetail = (postId: string) => {
+        navigate(`/post/${postId}`);
+    }
     return (
         <LoadingContainer loading={loading}>
             <ErrorContainer error={error != null}>
@@ -34,7 +38,13 @@ export const Posts = ({ args }: PostsProps) => {
                 loader={<h4>Loading...</h4>}
                 >
                 {items && items.map(({ node: post }: { node: Post }) => (
-                    <PostCard post={post} key={`allposts-${post.id}`} type="summary" className={classes.postCard} />
+                    <PostCard
+                        post={post}
+                        key={`allposts-${post.id}`}
+                        type="summary"
+                        className={classes.postCard}
+                        onPostClicked={routeToPostDetail}
+                    />
                 ))}
                 </InfiniteScroll>
             </ErrorContainer>

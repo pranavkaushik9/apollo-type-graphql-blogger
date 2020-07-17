@@ -1,4 +1,4 @@
-import { Query, FieldResolver, Resolver, ResolverInterface, Root, Ctx, Args } from "type-graphql";
+import { Arg, Args, Ctx, FieldResolver, Query, Resolver, ResolverInterface, Root } from "type-graphql";
 
 import { Blog, Context, Post, PostsArgs, PostConnection, User } from "../types";
 
@@ -7,6 +7,12 @@ import { Blog, Context, Post, PostsArgs, PostConnection, User } from "../types";
 @Resolver(of => Post)
 export class PostResolver implements ResolverInterface<Post> {
     
+    /** Resolves single post*/
+    @Query(returns => Post)
+    post(@Arg('id') id: string, @Ctx() { dataSources: { bloggerAPI } }: Context) {
+        return bloggerAPI.getPost(id);
+    }
+
     /** Resolves all posts*/
     @Query(returns => PostConnection)
     async posts(@Args() args: PostsArgs, @Ctx() { dataSources: { bloggerAPI } }: Context) {

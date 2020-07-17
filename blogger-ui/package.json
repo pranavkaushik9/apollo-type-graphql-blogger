@@ -46,6 +46,7 @@
     "@types/cypress": "^1.1.3",
     "@types/cypress-cucumber-preprocessor": "^1.14.1",
     "@types/mocha": "^8.0.0",
+    "@types/react-router-dom": "^5.1.5",
     "cypress": "^4.10.0",
     "cypress-cucumber-preprocessor": "^2.5.3"
   }

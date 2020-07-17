@@ -6,7 +6,7 @@ import { Authors, Posts } from '../../components';
 export const Home = () => {
     const classes = useStyles();
     return (
-        <Container className={classes.container}>
+        <Container>
             <Grid spacing={3} container>
                 <Grid item xs={12} md={9}>
                     <Posts args={{ first: 10 }} />
@@ -20,9 +20,6 @@ export const Home = () => {
 };
 
 const useStyles = makeStyles({
-    container: {
-        marginTop: '1rem',
-    },
     authorContainer: {
         padding: '1rem',
     }

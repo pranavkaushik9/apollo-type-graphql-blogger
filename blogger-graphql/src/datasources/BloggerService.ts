@@ -50,6 +50,10 @@ export class BloggerService extends RESTDataSource {
 
     /************** posts */
 
+    getPost(id: string): Promise<Post> {
+        return this.get<Post>(`/posts/${id}`);
+    }
+
     async getPosts({ authorId, blogId, searchKey, cursor, first }: PostsArgs): Promise<IPaginatedResponse<Post>> {
         const params = new URLSearchParams();
 
