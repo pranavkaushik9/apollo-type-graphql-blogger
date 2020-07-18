@@ -4,6 +4,12 @@
   "description": "- Basic blogging site using GraphQL, type-graphql, Apollo",
   "main": "index.js",
   "scripts": {
+    "install:api": "cd blogger-api && npm install", 
+    "install:graphql": "cd blogger-graphql && npm install", 
+    "install:ui": "cd blogger-ui && npm install",
+    "install:all": "concurrently \"npm run install:api\" \"npm run install:graphql\" \"npm run install:ui\"",
+    "generate-data": "cd blogger-api && npm run generate",
+    "build": "npm run install:all && npm run generate-data",
     "start": "concurrently \"npm run start:api\" \"npm run start:graphql\" \"npm run start:client\"",
     "start:api": "cd blogger-api && npm run server ",
     "start:graphql": "cd blogger-graphql && npm run dev",
