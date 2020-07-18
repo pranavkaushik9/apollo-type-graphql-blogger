@@ -3,9 +3,10 @@ import { makeStyles } from '@material-ui/core';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useHistory } from 'react-router-dom';
 
-import { getPosts } from '../../graphql';
+import { BookmarkedPosts, getPosts } from '../../graphql';
 import { usePagination } from '../../hooks/usePagination';
 import { Post, PostArgs } from '../../types';
+import { Bookmarkable } from '../Bookmarkable';
 import { ErrorContainer } from '../ErrorContainer';
 import { LoadingContainer } from '../LoadingContainer';
 import { PostCard } from '../PostCard';
@@ -28,23 +29,42 @@ export const Posts = ({ args }: PostsProps) => {
     const routeToPostDetail = (postId: string) => {
         navigate(`/post/${postId}`);
     }
+
+    const handleBookmarkChange = (postId: string, isBookmarked: boolean) => {
+        const bookmarks = BookmarkedPosts.get();
+        if (isBookmarked) {
+            bookmarks.set(postId, null);
+            BookmarkedPosts.set(bookmarks)
+        } else {
+            bookmarks.delete(postId);
+            BookmarkedPosts.set(bookmarks);
+        }
+    };
+
     return (
         <LoadingContainer loading={loading}>
             <ErrorContainer error={error != null}>
                 <InfiniteScroll
-                dataLength={items.length}
-                next={fetchMoreData}
-                hasMore={hasMore || false}
-                loader={<h4>Loading...</h4>}
+                    dataLength={items.length}
+                    next={fetchMoreData}
+                    hasMore={hasMore || false}
+                    loader={<h4>Loading...</h4>}
                 >
                 {items && items.map(({ node: post }: { node: Post }) => (
-                    <PostCard
-                        post={post}
+                    <Bookmarkable
                         key={`allposts-${post.id}`}
-                        type="summary"
-                        className={classes.postCard}
-                        onPostClicked={routeToPostDetail}
-                    />
+                        onBookmarkChange={(isBookmarked: boolean) => {
+                            handleBookmarkChange(post.id, isBookmarked);
+                        }}
+                        isBookmarked={post.isBookmarked}
+                    >
+                        <PostCard
+                            post={post}
+                            type="summary"
+                            className={classes.postCard}
+                            onPostClicked={routeToPostDetail}
+                        />
+                    </Bookmarkable>
                 ))}
                 </InfiniteScroll>
             </ErrorContainer>

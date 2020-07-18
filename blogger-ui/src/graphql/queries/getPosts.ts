@@ -8,6 +8,7 @@ export const getPosts = gql`
                     id
                     title
                     body
+                    isBookmarked @client
                     author {
                             id
                             firstName

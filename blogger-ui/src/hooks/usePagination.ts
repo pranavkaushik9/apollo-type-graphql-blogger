@@ -8,6 +8,7 @@ export const usePagination = <T, TArgs extends PaginationArgs>(args: TArgs, key:
         error,
         fetchMore,
         data,
+        refetch
     } = useQuery<QueryResponse<PaginatedResponse<T>>, TArgs>(query, { variables: args });
 
     const fetchMoreData = () => {
@@ -38,6 +39,7 @@ export const usePagination = <T, TArgs extends PaginationArgs>(args: TArgs, key:
         loading,
         error,
         fetchMoreData,
+        refetch,
         hasMore: data != null ? data![key].pageInfo?.hasNextPage: false,
         items: data != null ? data![key].edges: []
     };

@@ -45,7 +45,7 @@ export const PostCard = ({ post, type = 'summary', className = '', onPostClicked
                     getCard()
                 }
             </CardActionArea>
-        )
+        );
     }
 
     return getCard();

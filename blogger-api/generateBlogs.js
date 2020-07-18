@@ -15,7 +15,7 @@ module.exports = (threshold, users) => {
             id: `${randomUserId}-${i}`,
             name: faker.lorem.words(),
             category: categories[randomCategoryIndex],
-            authorId: randomUserId
+            authorId: `${randomUserId}`
         });
     }
     return blogs;

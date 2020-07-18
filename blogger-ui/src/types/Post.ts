@@ -10,4 +10,5 @@ export interface Post {
     blog?: Blog;
     blogId: string;
     authorId: string;
+    isBookmarked: boolean;
 }

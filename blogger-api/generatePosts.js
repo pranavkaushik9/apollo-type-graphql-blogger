@@ -14,7 +14,7 @@ module.exports = (threshold, users, blogs) => {
         const randomBlogIndex = Math.floor(Math.random() * (userBlogs.length - 1));
         posts.push({
             id: `${i}`,
-            authorId: randomUserId,
+            authorId: `${randomUserId}`,
             blogId: userBlogs[randomBlogIndex].id,
             title: faker.lorem.words(),
             body: faker.lorem.paragraphs()

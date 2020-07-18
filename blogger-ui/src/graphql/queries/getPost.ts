@@ -6,12 +6,14 @@ export const getPost = gql`
             id
             title
             body
+            isBookmarked @client
             author {
                 id
                 firstName
                 lastName
             }
             blog {
+                id
                 name
             } 
         }
