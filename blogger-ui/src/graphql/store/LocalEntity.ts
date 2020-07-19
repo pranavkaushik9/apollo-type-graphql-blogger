@@ -1,4 +1,4 @@
-import { ReactiveVar, makeVar, FieldReadFunction, TypePolicy } from "@apollo/client";
+import { ReactiveVar, makeVar, TypePolicy } from "@apollo/client";
 
 export class LocalEntity<T> {
     constructor(
@@ -24,7 +24,6 @@ export class LocalEntity<T> {
         return {
             [this.name]: {
                 read: () => {
-                    console.log('retrieving', this.localReactiveVar());
                     return this.localReactiveVar()
                 }
             }
