@@ -31,7 +31,7 @@ export const Posts = ({ args }: PostsProps) => {
     }
 
     const handleBookmarkChange = (postId: string, isBookmarked: boolean) => {
-        const bookmarks = BookmarkedPosts.get();
+        const bookmarks = new Map(BookmarkedPosts.get());
         if (isBookmarked) {
             bookmarks.set(postId, null);
             BookmarkedPosts.set(bookmarks)
