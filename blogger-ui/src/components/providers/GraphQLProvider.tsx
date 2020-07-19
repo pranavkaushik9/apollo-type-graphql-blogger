@@ -14,8 +14,10 @@ const cache = new InMemoryCache({
                 }
             }
         },
-        Queries: {
-            ...BookmarkedPosts.getFieldReadDefinition()
+        Query: {
+            fields: {
+                ...BookmarkedPosts.getFieldReadDefinition()
+            }
         }
       }
 });

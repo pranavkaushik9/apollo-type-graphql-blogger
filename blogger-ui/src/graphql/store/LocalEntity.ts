@@ -1,4 +1,4 @@
-import { ReactiveVar, makeVar, FieldReadFunction } from "@apollo/client";
+import { ReactiveVar, makeVar, FieldReadFunction, TypePolicy } from "@apollo/client";
 
 export class LocalEntity<T> {
     constructor(
@@ -20,9 +20,7 @@ export class LocalEntity<T> {
         return this.localReactiveVar();
     }
 
-    public getFieldReadDefinition(): {
-        [key: string]: { read: FieldReadFunction<any, any> }
-    } {
+    public getFieldReadDefinition(): Exclude<TypePolicy["fields"], void> {
         return {
             [this.name]: {
                 read: () => {
