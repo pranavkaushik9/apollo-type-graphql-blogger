@@ -1,9 +1,9 @@
 import { ReactiveVar, makeVar, TypePolicy } from "@apollo/client";
 
-export class LocalEntity<T> {
+export class BaseStore<T> {
     constructor(
-        public name: string,
-        public initialValue: T,
+        private name: string,
+        private initialValue: T,
         private localReactiveVar: ReactiveVar<T> = makeVar<T>(initialValue)
     ) {
     }

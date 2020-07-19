@@ -1,1 +1,1 @@
-export * from './BookmarkedPosts';
+export * from './BookmarkedPostsStore';

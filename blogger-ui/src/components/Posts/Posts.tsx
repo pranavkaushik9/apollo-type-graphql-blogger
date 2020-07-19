@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useHistory } from 'react-router-dom';
 
-import { BookmarkedPosts, getPosts } from '../../graphql';
+import { bookmarkedPostsStore, getPosts } from '../../graphql';
 import { usePagination } from '../../hooks/usePagination';
 import { Post, PostArgs } from '../../types';
 import { Bookmarkable } from '../Bookmarkable';
@@ -31,13 +31,10 @@ export const Posts = ({ args }: PostsProps) => {
     }
 
     const handleBookmarkChange = (postId: string, isBookmarked: boolean) => {
-        const bookmarks = new Map(BookmarkedPosts.get());
         if (isBookmarked) {
-            bookmarks.set(postId, null);
-            BookmarkedPosts.set(bookmarks)
+            bookmarkedPostsStore.addNewBookmark(postId);
         } else {
-            bookmarks.delete(postId);
-            BookmarkedPosts.set(bookmarks);
+            bookmarkedPostsStore.removeBookmark(postId);
         }
     };
 

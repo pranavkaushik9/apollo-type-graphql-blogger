@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 
-import { BookmarkedPosts } from '../../graphql';
+import { bookmarkedPostsStore } from '../../graphql';
 
 const cache = new InMemoryCache({
     typePolicies: {
@@ -9,14 +9,14 @@ const cache = new InMemoryCache({
             fields: {
                 isBookmarked: (_, { readField }) => {
                     const id = readField<string>('id');
-                    const bokmarks = BookmarkedPosts.get();
+                    const bokmarks = bookmarkedPostsStore.get();
                     return bokmarks.has(id || '');
                 }
             }
         },
         Query: {
             fields: {
-                ...BookmarkedPosts.getFieldReadDefinition()
+                ...bookmarkedPostsStore.getFieldReadDefinition()
             }
         }
       }
