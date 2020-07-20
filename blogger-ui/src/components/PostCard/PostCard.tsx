@@ -32,7 +32,7 @@ export const PostCard = ({ post, type = 'summary', className = '', onPostClicked
                         }
                     </Typography>
                     <Typography variant="subtitle1" color="primary">
-                        Authored by {`${post.author?.firstName} ${post.author?.lastName}`}
+                        Authored by {post.author?.fullName}
                     </Typography>
                 </CardContent>
             </div>

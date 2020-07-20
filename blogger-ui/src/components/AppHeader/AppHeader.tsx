@@ -1,9 +1,21 @@
 import React from 'react';
-import { Button, Container, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import { Container, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
+
+import { guestUserMenuItems, loggedInUserMenuitems } from '../../constants';
+import { useSiteUser } from '../../hooks';
+import { ActionItems } from '../../types';
+import { PopupMenu } from '../PopupMenu';
 
 export const AppHeader = () => {
     const classes = useStyles();
+    const { isGuest, info: userInfo } = useSiteUser();
+
+    const userMenuItems: ActionItems = isGuest ? guestUserMenuItems : loggedInUserMenuitems;
+
+    const handleMenuItemClick = () => {
+        // TBD
+    };
 
     return (
         <header className={classes.header}>
@@ -19,9 +31,11 @@ export const AppHeader = () => {
                     >
                         <NavLink to="/" activeClassName={classes.activeLink} className={classes.link}>Blogger</NavLink>
                     </Typography>
-                    <Button variant="outlined" size="small" color="secondary">
-                        Sign up
-                    </Button>
+                    <PopupMenu
+                        buttonText={`Welcome ${userInfo?.fullName}`}
+                        menuItems={userMenuItems}
+                        onMenuItemClick={handleMenuItemClick}
+                    />
                 </Toolbar>
             </Container>
         </header>

@@ -4,5 +4,6 @@ export * from './Bookmarkable';
 export * from './ErrorContainer';
 export * from './LoadingContainer';
 export * from './Posts';
-export * from './providers';
 export * from './PostCard';
+export * from './PopupMenu';
+export * from './providers';

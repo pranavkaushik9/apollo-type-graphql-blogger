@@ -6,20 +6,29 @@ import { ToggleButton } from '@material-ui/lab';
 interface BookmarkableProps {
     children: ReactElement;
     isBookmarked?: boolean;
+    isTeaser : boolean;
+    teaserText: string;
     onBookmarkChange: (isBookmarked: boolean) => void;
 }
 
-export const Bookmarkable = ({ children, isBookmarked = false, onBookmarkChange }: BookmarkableProps) => {
+export const Bookmarkable = ({ children, isBookmarked = false, isTeaser, teaserText, onBookmarkChange,  }: BookmarkableProps) => {
     const classes = useStyle();
+    const handleBookmarkChange = () => {
+        if (isTeaser) {
+            // TBD use snackbar
+            alert(teaserText);
+            return;
+        }
+
+        onBookmarkChange(!isBookmarked);
+    }
 
     return (
         <section className={classes.bookmarkContainer}>
             <ToggleButton
                 value="check"
                 selected={isBookmarked}
-                onChange={() => {
-                    onBookmarkChange(!isBookmarked);
-                }}
+                onChange={handleBookmarkChange}
                 className={classes.bookmark}
             >
                 <Bookmark />

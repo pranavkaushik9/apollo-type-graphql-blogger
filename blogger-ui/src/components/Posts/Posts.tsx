@@ -10,6 +10,7 @@ import { Bookmarkable } from '../Bookmarkable';
 import { ErrorContainer } from '../ErrorContainer';
 import { LoadingContainer } from '../LoadingContainer';
 import { PostCard } from '../PostCard';
+import { useSiteUser } from '../../hooks';
 
 interface PostsProps {
     args: PostArgs;
@@ -24,6 +25,8 @@ export const Posts = ({ args }: PostsProps) => {
         hasMore
     } = usePagination<Post, PostArgs>(args, 'posts', getPosts);
     const { push: navigate } = useHistory();
+
+    const { isGuest } = useSiteUser();
 
     const classes = useStyles();
     const routeToPostDetail = (postId: string) => {
@@ -54,6 +57,8 @@ export const Posts = ({ args }: PostsProps) => {
                             handleBookmarkChange(post.id, isBookmarked);
                         }}
                         isBookmarked={post.isBookmarked}
+                        isTeaser={isGuest}
+                        teaserText='Please login to bookmark'
                     >
                         <PostCard
                             post={post}

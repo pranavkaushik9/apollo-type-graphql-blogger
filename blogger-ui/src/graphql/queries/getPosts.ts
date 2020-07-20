@@ -13,6 +13,7 @@ export const getPosts = gql`
                             id
                             firstName
                             lastName
+                            fullName @client
                         }
                         blog {
                             id

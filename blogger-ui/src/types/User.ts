@@ -8,4 +8,5 @@ export interface User {
     lastName: string;
     blogs?: Array<Blog>;
     posts?: Array<Post>;
+    fullName: string;
 }

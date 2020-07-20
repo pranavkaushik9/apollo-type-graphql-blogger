@@ -8,6 +8,7 @@ export const getUsers = gql`
                     id
                     firstName
                     lastName
+                    fullName @client
                 }
                 cursor
             }
