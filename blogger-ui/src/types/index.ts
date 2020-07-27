@@ -2,6 +2,7 @@ export * from './ActionItem';
 export * from './ActionItems';
 export * from './Blog';
 export * from './BlogCategory';
+export * from './FieldDefinitions';
 export * from './PaginationArgs';
 export * from './PaginatedPost';
 export * from './PaginationResponse';

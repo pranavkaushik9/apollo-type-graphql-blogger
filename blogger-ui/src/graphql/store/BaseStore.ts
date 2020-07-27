@@ -1,4 +1,4 @@
-import { ReactiveVar, makeVar, TypePolicy } from "@apollo/client";
+import { ReactiveVar, makeVar, FieldPolicy, TypePolicy } from "@apollo/client";
 
 export class BaseStore<T> {
     constructor(
@@ -20,7 +20,7 @@ export class BaseStore<T> {
         return this.localReactiveVar();
     }
 
-    public getFieldReadDefinition(): Exclude<TypePolicy["fields"], void> {
+    public getQueryFieldReadDefinition(): Exclude<TypePolicy["fields"], void> {
         return {
             [this.name]: {
                 read: () => {
