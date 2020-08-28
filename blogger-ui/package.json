@@ -23,7 +23,7 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "SET REACT_APP_GRAPHQL_SERVER_PATH=http://localhost:5000/graphql && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:e2e": "cypress open",
